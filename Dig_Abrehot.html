@@ -2,24 +2,27 @@
 <html>
     <head>
             <meta name="viewport" content="with=device—width, initial-scale=1.0">
-            <tit1e>University Website Design — Easy Tutorials</tit1e>
+            <tit1e></tit1e>
             <link rel="stylesheet" href="Style.css">
             <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
-    </head>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css">    
+</head>
     <body>
         <section class="header">
                 <nav>
-                    <a href="Dig_Abrehot.html"><img src="Images/Logo (Logo).jpeg"></a>
-                    <div class="nav-links">
+                    <a href="Dig_Abrehot.html"><img src="Images/LogoDIGabrehot (Medium).png"></a>
+                    <div class="nav-links" id="navLinks">
+                        <i class="fa fa-times-circle-o" onclick="hideMenu()"></i>
                         <ul>
                                 <li> <a href="">HOME</a></li>
                                 <li> <a href="">ABOUT</a></li>
                                 <li> <a href="">CATALOGE</a></li>
                                 <li> <a href="">NEARBY LIBRARY</a></li> 
                         </ul>
-                    </div>   
+                    </div>
+                    <i class="fa fa-bars" onclick="showMenu()"></i>
                 </nav>
                 <div class="text-box">
                         <h1>Ethiopia's first Digital Library</h1>
@@ -28,7 +31,16 @@
                 </div>
 
         </section>
-
+<!------- JavaScript for Toggle Menu Mobile -------->
+        <script>
+                var navLinks = document.getElementById("navLinks");
+                function showMenu(){
+                        navLinks.style.right = "0";
+                }
+                function hideMenu(){
+                        navLinks.style.right = "-200px";
+                }
+        </script>
 </body>
 </html>
 
