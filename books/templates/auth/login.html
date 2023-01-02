@@ -1,0 +1,24 @@
+{% extends 'auth/auth.html' %}
+{% load static %}
+{% block content %}
+<div class="form">
+    <form method="POST">
+        {% csrf_token %}
+        <div class='book'>
+            <div class='book'>
+                <span class="white">Username</span>
+                <input name='username' id='username'>
+            </div>
+            <div class='book'>
+                <span class="white">Password</span>
+                <input type="password" name='password' id='password'>
+            </div>
+            <button class="button" type="submit">Login</button>
+        </div>
+    </form>
+    <div class="book">
+    {{ form.errors }}
+        <p>New here? <a href="{% url 'register' %}" class="white">Register</a></p>
+    </div>
+</div>
+{% endblock %}

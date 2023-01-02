@@ -1,0 +1,59 @@
+{% load static %}
+<html>
+    <head>
+            <meta name="viewport" content="with=device—width, initial-scale=1.0">
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+            <title>Digital Abrehot - Ethiopia's first Digital Library</title>
+            <meta name="description" content="">
+            
+            <link rel="stylesheet" href="{% static 'Style.css' %}">
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css">    
+</head>
+    <body>
+        <section class="header">
+                <nav>
+                    <a href="{% url 'home' %}"><img src="{% static 'LogoWhite.svg' %}"></a>
+                    <div class="nav-links" id="navLinks">
+                        <i style="color: aliceblue;" class="fa fa-times" onclick="hideMenu()"></i>
+                        <ul>
+                                <li> <a href="{% url 'home' %}">HOME</a></li>
+                                <li> <a href="{% url 'all_books' %}">BOOKS</a></li>
+                                <li> <a href="{% url 'all_videos' %}">VIDEOS</a></li>
+                                {% if login %}
+                                <li> <a href="{% url 'history' %}">HISTORY</a></li>
+                                <li> <a href="{% url 'logout' %}">LOGOUT</a></li>
+                                {% else %}
+                                <li> <a href="{% url 'login' %}">LOGIN</a></li>
+                                <li> <a href="{% url 'register' %}">REGISTER</a></li>
+                                {% endif %}
+                        </ul>
+                    </div>
+                    <i class="fa fa-bars" onclick="showMenu()"></i>
+                </nav>
+                <div class="text-box">
+                        <h1>Ethiopia's first Digital Library</h1>
+                        <p>Making information reachable to every person on the contry and even beyond.  </p>
+                        {% if login %}
+                        <a href="{% url 'all_books' %}" class="membership-promo">View Books</a>
+                        {% else %}
+                        <a href="{% url 'register' %}" class="membership-promo">Join US. Be a member</a>
+                        {% endif %}
+                </div>
+
+        </section>
+<!------- JavaScript for Toggle Menu Mobile -------->
+        <script>
+                var navLinks = document.getElementById("navLinks");
+                function showMenu(){
+                        navLinks.style.right = "0";
+                }
+                function hideMenu(){
+                        navLinks.style.right = "-200px";
+                }
+        </script>
+</body>
+</html>
+

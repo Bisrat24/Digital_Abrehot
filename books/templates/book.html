@@ -1,0 +1,32 @@
+{% extends 'base.html' %} 
+{% block content %}
+{% load static %}
+<div class="overview">
+  <div>
+    <h1>{{book.title}}</h1>
+    <p>{{book.genre.name}}</p>
+  </div>
+  <div>
+    <p>By:<strong> <span class='author'>{{book.author}}</span><strong></p>
+  </div>
+  <div>
+    <p class="isbn">ISBN: {{book.ISBN_number}}</p>
+  </div>
+</div>
+<div class='book'>
+  <div>
+      <object
+        data="{% static '/books/' %}{{book.src}}"
+        type="application/pdf"
+        width="1200px"
+        height="760px"
+        aria-labelledby="PDF document"
+      >
+        <p class="author">
+          Your browser does not support PDFs.
+          <a href="{% static '/books/' %}{{book.src}}">Download the PDF</a>
+        </p>
+      </object>
+    </div>
+</div>
+{% endblock %}

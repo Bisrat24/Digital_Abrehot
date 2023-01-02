@@ -1,0 +1,99 @@
+a:not(:hover) {
+  text-decoration: none;
+  transition: 1s;
+}
+hr {
+  margin: 0 auto;
+  width: 80%;
+}
+.inside {
+  height: 100px;
+  margin-bottom: -75px;
+}
+.isbn {
+  font-family: monospace;
+  font-weight: 150;
+}
+.genre {
+  margin-right: 60px;
+  display: flex;
+  align-items: center;
+  color: #fff;
+  font-size: 30px;
+}
+.white {
+  color: white !important;
+}
+.book {
+  padding: 10px;
+  padding-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.book p {
+  color: #ff5;
+  font-size: 16px;
+}
+.books {
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.book-cover {
+  padding: 0 20px;
+}
+.video {
+  padding: 10px;
+  padding-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.video p {
+  color: #ff5;
+  font-size: 16px;
+}
+.videos {
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.video-cover {
+  padding: 0 20px;
+}
+.category {
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+  padding: 0 60px;
+}
+.author {
+  padding-top: 10px;
+  color: white;
+  font-style: italic;
+}
+.inside img {
+  margin-left: -50px;
+  width: 200px;
+}
+.overview {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0 60px;
+}
+.overview h1 {
+  color: #fff;
+  font-size: 40px;
+}
+.overview p {
+  font-size: 14px;
+  color: #ff5;
+}

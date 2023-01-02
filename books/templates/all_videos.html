@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    {% for genre in genres %}
+    <hr>
+    <div class="category">
+        {% for videogenre, videos in genre.items %}
+            <a href="{% url 'genre' videogenre %}" class="genre">
+                <h5>{{videogenre}}</h5>
+            </a>
+            <div class='videos'>
+                {%for video in videos%}
+                    <div class='video'>
+                        <a href="{% url 'video' videogenre video.id %}" style="text-align: center">
+                            <iframe class="video-cover" width="160px" height="120px" frameborder="0"  src="{{video.src}}/0.jpg" alt="cover_image"></iframe>
+                            <p>{{video.title}}</p>
+                        </a>
+                    </div>
+                {% endfor%}
+            </div>
+        {% endfor %}
+    </div>
+    {% endfor%}
+    <hr>
+{% endblock %}

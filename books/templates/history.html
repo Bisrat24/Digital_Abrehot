@@ -1,0 +1,25 @@
+{% extends 'base.html' %} 
+{% load static %}
+{% block content %}
+<h3 style="text-align: center; color: #fff; font-size: 30px;">{{bg}}</h3>
+<div class='videos'>
+    {%for h in history%}
+      {%if h.book %}
+      <div class='book'>
+          <a href="{% url 'book' h.book.genre.name h.book.id %}" style="text-align: center">
+              <img class="book-cover" style="height:120px" src="{% static '/books/cover_images/' %}{{h.book.cover_image}}" alt="cover_image"/>
+              <p>{{h.book.title}}</p>
+          </a>
+          <p class="white">{{h.created}}</p>
+      </div>
+      {% else %}<div class='video'>
+        <a href="{% url 'video' h.video.genre.name h.video.id %}" style="text-align: center">
+            <iframe class="video-cover" width="160px" height="120px" frameborder="0"  src="{{h.video.src}}/0.jpg" alt="cover_image"></iframe>
+            <p>{{h.video.title}}</p>
+            <p class="white">{{h.created}}</p>
+        </a>
+    </div>
+      {%endif%}
+    {% endfor%}
+</div>
+{% endblock %}

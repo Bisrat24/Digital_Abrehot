@@ -1,0 +1,16 @@
+{% extends 'base.html' %} 
+{% load static %}
+{% block content %}
+<h3 style="text-align: center; color: #fff; font-size: 30px;">{{bg}}</h3>
+<div class='books'>
+    {%for book in books%}
+        <div class='book'>
+            <a href="{% url 'book' bg book.id %}" style="text-align: center">
+                <img class="book-cover" style="height:120px" src="{% static '/books/cover_images/' %}{{book.cover_image}}" alt="cover_image"/>
+                <p>{{book.title}}</p>
+            </a>
+            <p class="white">{{book.author}}</p>
+        </div>
+    {% endfor%}
+</div>
+{% endblock %}

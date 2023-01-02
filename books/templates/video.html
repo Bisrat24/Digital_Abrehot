@@ -1,0 +1,13 @@
+{% extends 'base.html' %} 
+{% block content %}
+{% load static %}
+<div class="overview">
+  <div>
+    <h1>{{video.title}}</h1>
+    <p>{{video.genre.name}}</p>
+  </div>
+</div>
+<div class='video'>
+  <iframe width="800" height="500" src="{{video.src}}" frameborder="0" allowfullscreen></iframe>
+</div>
+{% endblock %}

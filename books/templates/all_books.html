@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    {% for genre in genres %}
+    <hr>
+    <div class="category">
+        {% for bookgenre, books in genre.items %}
+            <a href="{% url 'genre' bookgenre %}" class="genre">
+                <h5>{{bookgenre}}</h5>
+            </a>
+            <div class='books'>
+                {%for book in books%}
+                    <div class='book'>
+                        <a href="{% url 'book' bookgenre book.id %}" style="text-align: center">
+                            <img class="book-cover" style="height:120px" src="{% static '/books/cover_images/' %}{{book.cover_image}}" alt="cover_image"/>
+                            <p>{{book.title}}</p>
+                        </a>
+                        <p class="white">{{book.author}}</p>
+                    </div>
+                {% endfor%}
+            </div>
+        {% endfor %}
+    </div>
+    {% endfor%}
+    <hr>
+{% endblock %}

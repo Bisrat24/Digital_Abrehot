@@ -1,0 +1,22 @@
+{% extends 'auth/auth.html' %}
+{% load static %}
+{% block content %}
+<div class="form">
+    <form method="POST">
+        {% csrf_token %}
+        <div class="book">
+            {% for field in form %}
+            <div class='book'>
+                <span class="white">{{field.label}}</span>
+                {{field}}
+            </div>
+            {% endfor %}
+            <button class="button" type="submit">Register</button>
+        </div>
+    </form>
+    <div class="book">
+    {{ form.errors }}
+        <p>Already have an account? <a href="{% url 'login' %}" class="white">Login</a></p>
+    </div>
+</div>
+{% endblock %}

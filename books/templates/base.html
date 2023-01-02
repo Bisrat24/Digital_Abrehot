@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'Style.css' %}">
+    <link rel="stylesheet" href="{% static 'content.css' %}">
+    <title> {{ title }} - Digital Abrehot</title>
+    <style>
+        .message {
+            padding: 10px;
+            margin: 5px;
+            background-color: #f3f3f3
+        }
+        
+        nav a {
+            color: #d64161;
+            font-size: 3em;
+            margin-left: 50px;
+            text-decoration: none;
+        }
+        
+        .alert {
+            padding: 20px;
+            margin: 5px;
+            color: #970020;
+            background-color: #ffd5de;
+        }
+    </style>
+</head>
+
+<body class='header'>
+    <nav class="inside">
+        <a href="{% url 'home' %}"><img src="{% static 'LogoWhite.svg' %}"></a>
+        <div class="nav-links" id="navLinks">
+            <i style="color: aliceblue;" class="fa fa-times" onclick="hideMenu()"></i>
+            <ul>
+                    <li> <a href="{% url 'home' %}">HOME</a></li>
+                    <li> <a href="{% url 'all_books' %}">BOOKS</a></li>
+                    <li> <a href="{% url 'all_videos' %}">VIDEOS</a></li>
+                    {% if login %}
+                    <li> <a href="{% url 'history' %}">HISTORY</a></li>
+                    <li> <a href="{% url 'logout' %}">LOGOUT</a></li>
+                    {% else %}
+                    <li> <a href="{% url 'login' %}">LOGIN</a></li>
+                    <li> <a href="{% url 'register' %}">REGISTER</a></li>
+                    {% endif %}
+            </ul>
+        </div>
+        <i class="fa fa-bars" onclick="showMenu()"></i>
+    </nav>
+    <div class="content">
+        {% block content %} {% endblock %}
+    </div>
+</body>
+
+</html>
